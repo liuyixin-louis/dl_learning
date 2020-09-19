@@ -17,7 +17,18 @@ if __name__ == "__main__":
     metavar='ar1', #help information
     dest = 'a1',#the varibale name of argu1
     help='help information of argu1')
+
+
+    # 分组
+    group1 = parser.add_argument_group('group1')
+    group1.add_argument('--lr', '--learning-rate', default=0.1,
+                    type=float, metavar='LR', help='initial learning rate')
+
+
+
     args = parser.parse_args() #将参数字符串转换为对象并将其设为命名空间的属性。 返回带有成员的命名空间。
     print(args.a1)
 
+
+    
 

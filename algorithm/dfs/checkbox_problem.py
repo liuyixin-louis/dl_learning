@@ -1,3 +1,9 @@
+
+"""
+嵌套的checkbox可以看做是一棵树
+"""
+
+
 class Node:
     def __init__(self,id,father,children):
         self.id = id
