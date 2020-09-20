@@ -23,7 +23,7 @@ class View(nn.Module):
 
 class Trainer(object):
     """
-    Trainer for auxnet
+    Trainer
     """
 
     def __init__(self, model, train_loader, val_loader, settings, logger,
@@ -189,7 +189,7 @@ class Trainer(object):
                     utils.print_result(epoch, self.settings.n_epochs, i + 1,
                                        iters, self.lr, data_time, iter_time,
                                        single_error,
-                                       single_loss,
+                       a                single_loss,
                                        mode="Validation",
                                        logger=self.logger)
 

@@ -1,0 +1,29 @@
+# ------------- general options ----------------------------------------
+save_path = "/home/young/liuyixin/dl_learning/project/templates/DL_project/demo/train/logs" # log path
+data_path = "/home/dataset/cifar10" # path for dataset folder, containing cifar10 and imagenet
+dataset = "cifar10"  # options: imagenet | cifar10
+seed = 2020  # manually set RNG seed
+gpu = "0,1,2,3"  # GPU id to use, e.g. "0,1,2,3"
+
+# ------------- data options -------------------------------------------
+n_threads = 4  # number of threads used for data loading
+n_classes = 10  # number of classes in the dataset
+
+# ------------- Training options ---------------------------
+Maxepoch = 800
+policy = earlyStop
+
+# ------------- common optimization options ----------------------------
+batch_size = 128  # mini-batch size
+momentum = 0.9  # momentum
+weight_decay = 1e-4  # weight decay
+layer_wise_lr = 0.01  # learning rate for sub problem (8)
+
+# ------------- model options ------------------------------------------
+net_type = "preresnet"  # options: resnet | preresnet
+experiment_id = "20200919"  # experiment identifier
+depth = 56  # resnet depth: (n-2)%6==0
+
+# ------------- resume or pretrained options ------------------------------
+pretrained = ""  # path of the pre-trained model
+resume = "" # resume checkpoint
