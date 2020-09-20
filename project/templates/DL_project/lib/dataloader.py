@@ -71,6 +71,72 @@ def get_cifar_dataloader(dataset, batch_size, n_threads=4, data_path='/home/data
     return train_loader, val_loader
 
 
+
+def get_cifar_dataloader(dataset, batch_size, n_threads=4, data_path='/home/dataset/', logger=None):
+    """
+    Get dataloader for cifar10/cifar100
+    :param dataset: the name of the dataset
+    :param batch_size: how many samples per batch to load
+    :param n_threads:  how many subprocesses to use for data loading.
+    :param data_path: the path of dataset
+    :param logger: logger for logging
+    """
+
+    logger.info("|===>Get datalaoder for " + dataset)
+
+    if dataset == 'cifar10':
+        norm_mean = [0.49139968, 0.48215827, 0.44653124]
+        norm_std = [0.24703233, 0.24348505, 0.26158768]
+    elif dataset == 'cifar100':
+        norm_mean = [0.50705882, 0.48666667, 0.44078431]
+        norm_std = [0.26745098, 0.25568627, 0.27607843]
+    data_root = os.path.join(data_path, 'cifar')
+
+    train_transform = transforms.Compose([
+        transforms.RandomCrop(32, padding=4),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize(norm_mean, norm_std)])
+    val_transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize(norm_mean, norm_std)])
+
+    if dataset == 'cifar10':
+        train_dataset = datasets.CIFAR10(root=data_root,
+                                         train=True,
+                                         transform=train_transform,
+                                         download=True)
+        val_dataset = datasets.CIFAR10(root=data_root,
+                                       train=False,
+                                       transform=val_transform)
+    elif dataset == 'cifar100':
+        train_dataset = datasets.CIFAR100(root=data_root,
+                                          train=True,
+                                          transform=train_transform,
+                                          download=True)
+        val_dataset = datasets.CIFAR100(root=data_root,
+                                        train=False,
+                                        transform=val_transform)
+    else:
+        logger.info("invalid data set")
+        assert False, "invalid data set"
+
+    train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
+                                               batch_size=batch_size,
+                                               shuffle=True,
+                                               pin_memory=True,
+                                               num_workers=n_threads)
+    val_loader = torch.utils.data.DataLoader(dataset=val_dataset,
+                                             batch_size=batch_size,
+                                             shuffle=False,
+                                             pin_memory=True,
+                                             num_workers=n_threads)
+    return train_loader, val_loader
+
+
+
+
+
 def get_imagenet_dataloader(dataset, batch_size, n_threads=4, data_path='/home/dataset/', logger=None):
     """
     Get dataloader for imagenet

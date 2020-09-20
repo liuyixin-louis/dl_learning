@@ -14,15 +14,15 @@ __all__ = ['simplenet_mnist', 'simplenet_v2_mnist']
 class Simplenet(nn.Module):
     def __init__(self):
         super().__init__()
-        self.conv1 = nn.Conv2d(1, 20, 5, 1)
+        self.conv1 = nn.Conv2d(1, 20, 5, 1) # output 24*24
         self.relu1 = nn.ReLU(inplace=False)
-        self.pool1 = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(20, 50, 5, 1)
+        self.pool1 = nn.MaxPool2d(2, 2) # output 12*12
+        self.conv2 = nn.Conv2d(20, 50, 5, 1)    # 8*8
         self.relu2 = nn.ReLU(inplace=False)
-        self.pool2 = nn.MaxPool2d(2, 2)
-        self.fc1 = nn.Linear(4*4*50, 500)
+        self.pool2 = nn.MaxPool2d(2, 2) #  4*4
+        self.fc1 = nn.Linear(4*4*50, 500) # 500
         self.relu3 = nn.ReLU(inplace=False)
-        self.fc2 = nn.Linear(500, 10)
+        self.fc2 = nn.Linear(500, 10) # 
         
     def forward(self, x):
         x = self.pool1(self.relu1(self.conv1(x)))

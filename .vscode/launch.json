@@ -1,0 +1,57 @@
+// {
+//     // 使用 IntelliSense 了解相关属性。 
+//     // 悬停以查看现有属性的描述。
+//     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Python: 当前文件",
+//             "type": "python",
+//             "request": "launch",
+//             "program": "${file}",
+//             "console": "integratedTerminal","args": [
+//                 "--batch-size","16",
+//                 "--test-batch-size","16",
+//                 "--epochs","100",
+//                 "--lr","0.01",
+//                 "--momentum","0.5",
+//                 "--seed","2020",
+//                 "--log-interval","1",
+//                 "--save-model",
+//                 "--dataset","imagenet",
+//                 "--model-type","resnet152",
+//                 "--num-workers","1",
+//                 "--n_gpu","4"
+//             ]
+//         }
+//     ]
+// }
+
+
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal","args": [
+                "--model","mobilenet",
+                "--dataset","imagenet",
+                "--n_gpu","4",
+                "--batch_size","64",
+                "--n_worker","4",
+                "--lr_type","cos",
+                "--n_epoch","100",
+                "--seed","2020",
+                "--data_root","/home/dataset/imagenet",
+                "--ckpt_path","material/checkpoints/mobilenet_imagenet.pth.tar",
+            ]
+        }
+    ]
+}
+

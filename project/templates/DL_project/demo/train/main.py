@@ -99,6 +99,8 @@ class Experiment(object):
                                                                              self.settings.n_threads,
                                                                              self.settings.data_path,
                                                                              self.logger)
+        eilf self.settings.dataset in ['mnist']:
+            
 
     def _set_trainier(self):
         """
