@@ -1,0 +1,35 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "python.terminal.activateEnvironment":true,
+    "configurations": [
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",
+            "args":[
+                "--job","train",
+                "--model","mobilenet" ,
+                "--dataset","imagenet",
+                "--preserve_ratio","0.5" ,
+                "--lbound","0.2" ,
+                "--rbound","1" ,
+                "--reward","acc_reward" ,
+                "--data_root","/home/dataset/imagenet" ,
+                "--ckpt_path","/home/young/liuyixin/dl_learning/material/checkpoints/mobilenet_imagenet.pth.tar" ,
+                "--seed","2020",
+                "--data_bsize","32",
+                "--n_gpu","1",
+                "--warmup","10",
+                "--train_episode","100",
+                "--suffix","debug测试搜索"
+            ]
+        }
+        
+    ]
+}
