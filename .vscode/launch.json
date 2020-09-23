@@ -39,18 +39,19 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal","args": [
-                "--model","mobilenet",
-                "--dataset","imagenet",
-                "--n_gpu","4",
-                "--batch_size","64",
-                "--n_worker","4",
-                "--lr_type","cos",
-                "--n_epoch","100",
-                "--seed","2020",
-                "--data_root","/home/dataset/imagenet",
-                "--ckpt_path","material/checkpoints/mobilenet_imagenet.pth.tar",
-            ]
+            "console": "integratedTerminal"
+            // ,"args": [
+            //     "--model","mobilenet",
+            //     "--dataset","imagenet",
+            //     "--n_gpu","4",
+            //     "--batch_size","64",
+            //     "--n_worker","4",
+            //     "--lr_type","cos",
+            //     "--n_epoch","100",
+            //     "--seed","2020",
+            //     "--data_root","/home/dataset/imagenet",
+            //     "--ckpt_path","material/checkpoints/mobilenet_imagenet.pth.tar",
+            // ]
         }
     ]
 }
